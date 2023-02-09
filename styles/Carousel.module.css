@@ -1,0 +1,34 @@
+.carousel {
+  padding: 1rem;
+  background-color: #685252;
+  display: flex;
+  gap: 1.6rem;
+  font-size: 2rem;
+  margin-top: 2rem;
+}
+
+.carousel button {
+  cursor: pointer;
+  transition: all 160ms ease-in-out;
+  color: white;
+  background-color: #483939;
+  border: none;
+  border-radius: 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.carousel button:hover {
+  color: #cccccc;
+  background-color: #504040;
+}
+
+.carouselItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (max-width: 800px) {
+}
