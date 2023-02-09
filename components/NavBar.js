@@ -13,7 +13,7 @@ const NavBar = () => {
       <li>
         <Link href="/posts">Blog</Link>
       </li>
-      <li className={styles.navbarPushRight}>
+      <li>
         <Link href="/asked">Who</Link>
       </li>
       <li>
