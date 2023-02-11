@@ -23,7 +23,7 @@ export default function Home({ data }) {
         {data ? (
           <Carousel data={data} />
         ) : (
-          <h1>No repo data yet...(probally because got rate limited)</h1>
+          <h1>No repo data yet...(probably because got rate limited)</h1>
         )}
       </div>
     </>
