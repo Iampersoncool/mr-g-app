@@ -1,34 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import sampleGithubData from '@/utils/sampleGithubData'
 import styles from '@/styles/Home.module.css'
 import Carousel from '@/components/Carousel'
-import { useEffect, useState } from 'react'
 
-export default function Home() {
-  const [repoData, setRepoData] = useState(null)
-
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
-      console.log('development')
-      setRepoData(sampleGithubData)
-      return
-    }
-
-    console.log('production')
-
-    fetch('https://api.github.com/users/Iampersoncool/repos')
-      .then((res) => res.json())
-      .then((data) => {
-        setRepoData(data)
-      })
-      .catch(console.error)
-  }, [])
-
-  useEffect(() => {
-    console.log(repoData)
-  }, [repoData])
-
+export default function Home({ data }) {
   return (
     <>
       <Head>
@@ -45,12 +20,33 @@ export default function Home() {
 
         <h1>Projects</h1>
 
-        {repoData ? (
-          <Carousel data={repoData} />
+        {data ? (
+          <Carousel data={data} />
         ) : (
-          <h1>Loading repo data...</h1>
+          <h1>No repo data yet...(probally because got rate limited)</h1>
         )}
       </div>
     </>
   )
+}
+
+export async function getStaticProps() {
+  const response = await fetch(
+    'https://api.github.com/users/Iampersoncool/repos'
+  )
+  const json = await response.json()
+
+  if (!response.ok) {
+    return {
+      props: {
+        data: null,
+      },
+    }
+  }
+
+  return {
+    props: {
+      data: json,
+    },
+  }
 }
