@@ -1,7 +1,8 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import styles from '@/styles/Home.module.css'
+import styles from '@/styles/Pages/Home.module.css'
 import Carousel from '@/components/Carousel'
+import sampleGithubData from '@/utils/sampleGithubData'
 
 export default function Home({ data }) {
   return (
@@ -31,6 +32,16 @@ export default function Home({ data }) {
 }
 
 export async function getStaticProps() {
+  if (process.env.NODE_ENV === 'development') {
+    console.log('development stuff')
+
+    return {
+      props: {
+        data: sampleGithubData,
+      },
+    }
+  }
+
   const response = await fetch(
     'https://api.github.com/users/Iampersoncool/repos'
   )

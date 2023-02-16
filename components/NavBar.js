@@ -1,4 +1,4 @@
-import styles from '@/styles/NavBar.module.css'
+import styles from '@/styles/Components/NavBar.module.css'
 import Link from 'next/link'
 
 const NavBar = () => {
@@ -12,9 +12,6 @@ const NavBar = () => {
       </li>
       <li>
         <Link href="/posts">Blog</Link>
-      </li>
-      <li>
-        <Link href="/asked">Who</Link>
       </li>
       <li>
         <Link href="/contact">Contact</Link>

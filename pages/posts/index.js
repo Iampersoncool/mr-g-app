@@ -1,13 +1,18 @@
-import styles from '@/styles/Posts.module.css'
+import styles from '@/styles/Pages/Posts.module.css'
 import path from 'path'
 import fs from 'fs'
 import dayjs from 'dayjs'
 import Link from 'next/link'
 import { serialize } from 'next-mdx-remote/serialize'
+import Head from 'next/head'
 
 const Posts = ({ posts }) => {
   return (
     <div className={styles.postsContainer}>
+      <Head>
+        <title>Blog</title>
+      </Head>
+
       <h1>Posts</h1>
 
       <div className={styles.posts}>

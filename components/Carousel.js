@@ -1,4 +1,4 @@
-import styles from '@/styles/Carousel.module.css'
+import styles from '@/styles/Components/Carousel.module.css'
 import Link from 'next/link'
 import { useState } from 'react'
 

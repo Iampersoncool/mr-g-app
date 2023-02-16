@@ -4,7 +4,22 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #806565;
   font-family: 'Droid Sans Mono', sans-serif;
+}
+
+.hljs {
+  border-radius: 1rem;
+  width: 30rem;
+}
+
+@media (min-width: 820px) {
+  .hljs {
+    width: 50rem;
+  }
 }

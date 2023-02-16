@@ -3,8 +3,11 @@ import path from 'path'
 import { serialize } from 'next-mdx-remote/serialize'
 import { MDXRemote } from 'next-mdx-remote'
 import dayjs from 'dayjs'
-import styles from '@/styles/Post.module.css'
+import styles from '@/styles/Pages/Post.module.css'
 import Head from 'next/head'
+import rehypeHighlight from 'rehype-highlight'
+
+import 'highlight.js/styles/atom-one-dark.css'
 
 const ShowPage = ({ mdxSource }) => {
   const frontMatter = mdxSource.frontmatter
@@ -15,6 +18,7 @@ const ShowPage = ({ mdxSource }) => {
       <Head>
         <title>{frontMatter.title}</title>
       </Head>
+
       <main className={styles.center}>
         <h1>{frontMatter.title}</h1>
         <p>{date}</p>
@@ -46,6 +50,9 @@ export async function getStaticProps({ params }) {
   const text = fs.readFileSync(fullPath)
   const mdxSource = await serialize(text, {
     parseFrontmatter: true,
+    mdxOptions: {
+      rehypePlugins: [rehypeHighlight],
+    },
   })
 
   return {

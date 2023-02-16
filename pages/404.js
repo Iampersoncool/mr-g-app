@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import styles from '@/styles/PageNotFound.module.css'
+import styles from '@/styles/Pages/PageNotFound.module.css'
 import Head from 'next/head'
 
 const Custom404 = () => {
